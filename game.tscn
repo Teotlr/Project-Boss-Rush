@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://ckudr8chj1kgo" path="res://player.tscn" id="3_7jktm"]
 [ext_resource type="PackedScene" uid="uid://pvbuc6ql1xcn" path="res://hit_box.tscn" id="4_fc0e3"]
 [ext_resource type="Texture2D" uid="uid://n4id1nqohuyr" path="res://attack_base.png" id="5_7jktm"]
+[ext_resource type="PackedScene" uid="uid://c30hctbunqic1" path="res://death_screen.tscn" id="6_ryrav"]
 
 [node name="Node2D" type="Node2D" unique_id=1106800021]
 
@@ -19,6 +20,7 @@ position = Vector2(1182, 0)
 position = Vector2(0, 668)
 
 [node name="player" parent="." unique_id=133357582 instance=ExtResource("3_7jktm")]
+process_mode = 1
 position = Vector2(578, 325)
 
 [node name="hitBox" parent="." unique_id=1451157788 instance=ExtResource("4_fc0e3")]
@@ -32,5 +34,9 @@ position = Vector2(623, 326.00003)
 rotation = 1.5707964
 scale = Vector2(0.16126962, 0.30117607)
 texture = ExtResource("5_7jktm")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=782668343]
+
+[node name="death_screen" parent="CanvasLayer" unique_id=1914071465 instance=ExtResource("6_ryrav")]
 
 [connection signal="timeout" from="hitBox/Timer" to="hitBox" method="_on_timer_timeout"]
